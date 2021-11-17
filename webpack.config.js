@@ -6,12 +6,22 @@ module.exports = {
     main: './src/index.js',
   },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 1310,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
 }
